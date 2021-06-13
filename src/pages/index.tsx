@@ -12,7 +12,6 @@ import { APIPosts } from '../common/lib/types';
 import { HydratePosts } from '../common/utils/helpers/hydration/';
 
 export default function Home({ posts }: APIPosts) {
-  const [disable, setDisable] = useState<boolean>(false);
 
   const hydratePosts = HydratePosts(posts);
 
