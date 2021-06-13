@@ -9,11 +9,11 @@ export const Footer = () => (
     <Hero>
       <Container alignContent={'center'}>
         <h1 className={'font-bold text-white text-2xl mb-8'}>
-          Ready to try it out?
+         Want to use this website template? 
         </h1>
         <Button.Group>
           <Button.Primary
-            title={`Check out on Github`}
+            title={`Check it out on Github`}
             route="https://github.com/audn/frontend-boilerplate"
             icon={<i className={'fab fa-github mr-3'} />}
             className={'!py-3 !px-16 desktop-transform'}
