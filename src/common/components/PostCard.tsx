@@ -1,67 +1,54 @@
-import { useState } from 'react';
+import React from 'react';
+import { IPost } from '../lib/interfaces';
 
-import { Layout } from '../common/layouts/Layout';
-import Container from '../common/components/Container';
-import Button from '../common/components/Button';
+import { slugify } from '../utils/helpers/slugify';
+import toDate from '../utils/helpers/toDate';
 
-import { motion } from 'framer-motion';
-import { fadeIn } from '../common/utils/data/animations';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { posts } from '../common/utils/data/posts';
-import { APIPosts } from '../common/lib/types';
-import { HydratePosts } from '../common/utils/helpers/hydration/';
+interface Props {
+  title: IPost['title'];
+  description: IPost['description'];
+  imageUrl: IPost['imageUrl'];
+  date: IPost['date'];
+}
 
-export default function Home({ posts }: APIPosts) {
-  const [disable, setDisable] = useState<boolean>(false);
-
-  const hydratePosts = HydratePosts(posts);
-
+function PostCard({ title, description, imageUrl, date }: Props) {
   return (
-    <Layout title={'Index | Lewgy'}>
-      <Container>
-        <motion.div
-          className="w-full"
-          initial="initial"
-          animate="enter"
-          variants={fadeIn}
-        >
-          <div className={'py-12'}>
-            <div className={'mb-12'}>
-              <h1 className={'font-bold text-white text-3xl mb-6'}>
-                Home page of my modding website.
-              </h1>
-              <h2 className={'font-medium text-on-naked-900'}>
-                Don't waste time searching or looking up mods for your new game!
-              </h2>
+    <Link href={`/post/` + slugify({ title: title })}>
+      <a className="flex flex-col rounded-lg shadow-lg overflow-hidden group hover:-translate-y-1 animate transform cursor-pointer will-change ring-2 ring-transparent hover:ring-brand-primary-100 hover:ring-opacity-40">
+        <div className="flex-shrink-0 max-h-48 overflow-hidden">
+          <Image
+            className="object-center w-full object-cover group-hover:scale-110 transform animate will-change"
+            src={imageUrl}
+            alt={title}
+            width={200}
+            height={192}
+            layout={'responsive'}
+          />
+        </div>
+        <div className="text-left flex-1 bg-card-post-100 p-6 flex flex-col justify-between">
+          <div className="flex-1">
+            <div className="block mt-2">
+              <p className="text-xl font-semibold text-on-card-post-900 group-hover:text-white animate">
+                {title}
+              </p>
+              <p className="mt-3 text-base text-on-card-post-800">
+                {description}
+              </p>
             </div>
-            <Button.Group className="flex space-y-5 sm:space-y-0 sm:space-x-5 mb-6">
-              <Button.Primary
-                title={`Feedback`}
-                className={'!px-12 sm:py-2'}
-                route="/forms"
-                icon={<i className={'fas fa-envelope mr-3'} />}
-              />
-              <Button.Secondary
-                title={``}
-                onClick={() => setDisable(!disable)}
-                disabled={disable}
-                className={'!px-12 sm:py-2'}
-                icon={<i className={'fas fa-do-not-enter mr-3'} />}
-              />
-            </Button.Group>
           </div>
-
-          {hydratePosts}
-        </motion.div>
-      </Container>
-    </Layout>
+          <div className="mt-6 flex items-center">
+            <div className="flex items-center text-sm text-on-card-post-700">
+              <i className={'fas fa-calendar-week mr-3'} />{' '}
+              {toDate({ dateString: date })}
+            </div>
+          </div>
+        </div>
+      </a>
+    </Link>
   );
 }
 
-export async function getStaticProps() {
-  return {
-    props: {
-      posts,
-    },
-  };
-}
+export default PostCard;
