@@ -2,7 +2,6 @@ import React from 'react';
 
 import Hero from '../Hero';
 
-
 export const Footer = () => (
   <div className={'mt-12'}>
     <Hero>
