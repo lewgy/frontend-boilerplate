@@ -12,11 +12,12 @@ import { APIPosts } from '../common/lib/types';
 import { HydratePosts } from '../common/utils/helpers/hydration/';
 
 export default function Home({ posts }: APIPosts) {
+  const [disable, setDisable] = useState<boolean>(false);
 
   const hydratePosts = HydratePosts(posts);
 
   return (
-    <Layout title={'Index | Lewgy'}>
+    <Layout title={'Index | Legsy'}>
       <Container>
         <motion.div
           className="w-full"
@@ -27,10 +28,10 @@ export default function Home({ posts }: APIPosts) {
           <div className={'py-12'}>
             <div className={'mb-12'}>
               <h1 className={'font-bold text-white text-3xl mb-6'}>
-                Home page of my modding website.
+                This is the home page for the mod website.
               </h1>
               <h2 className={'font-medium text-on-naked-900'}>
-                Don't waste time searching or looking up mods for your new game!
+                Don't waste time searching the web for mods for your favorite game!
               </h2>
             </div>
             <Button.Group className="flex space-y-5 sm:space-y-0 sm:space-x-5 mb-6">
@@ -39,6 +40,13 @@ export default function Home({ posts }: APIPosts) {
                 className={'!px-12 sm:py-2'}
                 route="/forms"
                 icon={<i className={'fas fa-envelope mr-3'} />}
+              />
+              <Button.Secondary
+                title={`Disable`}
+                onClick={() => setDisable(!disable)}
+                disabled={disable}
+                className={'!px-12 sm:py-2'}
+                icon={<i className={'fas fa-do-not-enter mr-3'} />}
               />
             </Button.Group>
           </div>
