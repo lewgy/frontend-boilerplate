@@ -16,7 +16,7 @@ export const Layout = ({ title, desc, url, children }: ILayout) => {
   return (
     <div className="flex flex-col min-h-screen">
       <SeoTags
-        title={title ? title : `Page | Boilerplate`}
+        title={title ? title : `Page | Lewgy`}
         desc={
           desc ||
           'Simple, pre-setup and free-to-use front-end boilerplate including React, Next.js & TailwindCSS'
