@@ -41,13 +41,6 @@ export default function Home({ posts }: APIPosts) {
                 route="/forms"
                 icon={<i className={'fas fa-envelope mr-3'} />}
               />
-              <Button.Secondary
-                title={`Disable`}
-                onClick={() => setDisable(!disable)}
-                disabled={disable}
-                className={'!px-12 sm:py-2'}
-                icon={<i className={'fas fa-do-not-enter mr-3'} />}
-              />
             </Button.Group>
           </div>
 
