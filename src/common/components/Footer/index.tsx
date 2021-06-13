@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Hero from '../Hero';
-import Button from '../Button';
 import Container from '../Container';
 
 export const Footer = () => (
