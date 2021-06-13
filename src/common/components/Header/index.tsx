@@ -19,7 +19,7 @@ export const Header = () => {
         <div className="sm:flex sm:flex-no-wrap items-center justify-between ">
           <div className="flex items-center justify-between">
             <Link href="/">
-              <a className="font-bold text-white text-xl">MyApp</a>
+              <a className="font-bold text-white text-xl">Lewgy</a>
             </Link>
             <MenuToggle
               toggleMenu={toggleMenu}
