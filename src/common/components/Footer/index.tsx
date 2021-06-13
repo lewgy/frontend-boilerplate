@@ -7,19 +7,7 @@ import Container from '../Container';
 export const Footer = () => (
   <div className={'mt-12'}>
     <Hero>
-      <Container alignContent={'center'}>
-        <h1 className={'font-bold text-white text-2xl mb-8'}>
-          
-        </h1>
-        <Button.Group>
-          <Button.Primary
-            title={``}
-            route=""
-            icon={<i className={'fab fa-github mr-3'} />}
-            className={'!py-3 !px-16 desktop-transform'}
-          />
-        </Button.Group>
-      </Container>
+      
     </Hero>
     <footer className="bg-footer-25">
       <div className="flex items-center font-medium justify-center container py-8 px-4 md:px-8 text-base text-on-footer-900">
