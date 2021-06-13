@@ -17,7 +17,7 @@ export default function Home({ posts }: APIPosts) {
   const hydratePosts = HydratePosts(posts);
 
   return (
-    <Layout title={'Index | Boilerlate'}>
+    <Layout title={'Index | Lewgy'}>
       <Container>
         <motion.div
           className="w-full"
@@ -28,11 +28,10 @@ export default function Home({ posts }: APIPosts) {
           <div className={'py-12'}>
             <div className={'mb-12'}>
               <h1 className={'font-bold text-white text-3xl mb-6'}>
-                React, Next.js & TailwindCSS
+                Home page of my modding website.
               </h1>
               <h2 className={'font-medium text-on-naked-900'}>
-                Don't waste time structuring or setting up interfaces on your
-                next project!
+                Don't waste time searching or looking up mods for your new game!
               </h2>
             </div>
             <Button.Group className="flex space-y-5 sm:space-y-0 sm:space-x-5 mb-6">
